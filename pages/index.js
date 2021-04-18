@@ -10,7 +10,7 @@ export async function getServerSideProps() {
     query: `
       query HomePage($limit: IntType) {
         site: _site {
-          globalSeo: {
+          globalSeo {
             siteName
           }
         }
@@ -66,7 +66,7 @@ export default function Home({ subscription }) {
   return (
     <div className="text-gray-700 body-font py-12 bg-gray-100 px-10">
       <Head>
-        <title>${data.site.globalSeo.siteName}</title>
+        <title>{data.site.globalSeo.siteName}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
