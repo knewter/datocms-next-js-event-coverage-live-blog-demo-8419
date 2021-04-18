@@ -9,6 +9,11 @@ export async function getServerSideProps() {
   const graphqlRequest = {
     query: `
       query HomePage($limit: IntType) {
+        _site: {
+          globalSeo: {
+            siteName
+          }
+        }
         posts: allPosts(first: $limit, orderBy:_firstPublishedAt_DESC) {
           id
           content
@@ -61,7 +66,7 @@ export default function Home({ subscription }) {
   return (
     <div className="text-gray-700 body-font py-12 bg-gray-100 px-10">
       <Head>
-        <title>Create Next App</title>
+        <title>data._site.globalSeo.siteName</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
